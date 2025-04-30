@@ -10,11 +10,11 @@ enum class AchievementCode {
 
 class AnixartSession : public network::UrlSession {
 public:
-	AnixartSession(std::string_view token);
+	AnixartSession(std::string_view login);
 
 	AchievementCode get_achievement(std::string_view name) const;
 
 private:
-	std::string _token;
+	std::string _login;
 };
 

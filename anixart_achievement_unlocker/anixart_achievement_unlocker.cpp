@@ -13,8 +13,6 @@ struct AnixartAchievement {
     std::string_view id;
 };
 
-// android anixart achievement id: C8V4M-J1X0Z-A3Q9W 
-
 AnixartAchievement achievements[] = {
     AnixartAchievement("Привет, я - Аникса!", "5"),
     AnixartAchievement("Аниксарт на Android", "C8V4M-J1X0Z-A3Q9W"),
@@ -30,11 +28,11 @@ void press_any_key() {
     std::getchar();
 }
 
-std::string get_token() {
-    std::ifstream file_istream("token.txt");
-    std::string token;
-    std::getline(file_istream, token);
-    return token;
+std::string ask_login() {
+    std::string login;
+    std::cout << "Выберите логин: ";
+    std::cin >> login;
+    return login;
 }
 
 // Logger :P
@@ -54,7 +52,7 @@ AnixartAchievement ask_achievement() {
 
 int program_main() {
     int code = 0;
-    AnixartSession session(get_token());
+    AnixartSession session(ask_login());
     AnixartAchievement achievement = ask_achievement();
 
     AchievementCode error_code = session.get_achievement(achievement.id);
