@@ -147,9 +147,6 @@
     <ClInclude Include="AnixartSession.hpp" />
     <ClInclude Include="Logger.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="token.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -78,6 +78,10 @@ int program_main() {
         Logger::log_error("Профиль не найден");
         code = -1;
         break;
+    case AchievementCode::LimitReached:
+        Logger::log_error("Достигнут лимит");
+        code = -1;
+        break;
     default:
         Logger::log_error("Неизвестная ошибка");
         code = -1;

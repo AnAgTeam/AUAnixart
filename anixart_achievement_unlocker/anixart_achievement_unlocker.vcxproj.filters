@@ -4,9 +4,6 @@
     <Filter Include="Public">
       <UniqueIdentifier>{0b6e7d4b-a453-41f9-b8a2-73d1257ff698}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{6824d763-6a5f-43da-971e-3e799627674c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anixart_achievement_unlocker.cpp">
@@ -26,10 +23,5 @@
     <ClInclude Include="Logger.hpp">
       <Filter>Public</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="token.txt">
-      <Filter>Misc</Filter>
-    </Text>
   </ItemGroup>
 </Project>
