@@ -5,7 +5,8 @@ enum class AchievementCode {
 	Success = 0,
 	Failed = 1,
 	AlreadyGranted = 2,
-	NotFound = 3
+	NotFound = 3,
+	ProfileNotFound = 4
 };
 
 class AnixartSession : public network::UrlSession {

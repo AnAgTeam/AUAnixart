@@ -5,6 +5,11 @@
 #include "Logger.hpp"
 #include <fstream>
 
+#include <io.h>
+#include <fcntl.h>
+
+#pragma execution_character_set("utf-8")
+
 #define countof(arr) (sizeof(arr) / sizeof(arr[0]))
 
 struct AnixartAchievement {
@@ -25,13 +30,18 @@ AnixartAchievement achievements[] = {
 
 void press_any_key() {
     Logger::log("Нажмите любую кнопку...");
-    std::getchar();
+    (void)std::getwchar();
 }
 
 std::string ask_login() {
+    std::wstring wlogin;
     std::string login;
     std::cout << "Выберите логин: ";
-    std::cin >> login;
+    std::getline(std::wcin, wlogin, L'\n');
+
+    int size = WideCharToMultiByte(CP_UTF8, 0, wlogin.data(), wlogin.size(), nullptr, 0, nullptr, nullptr);
+    login.resize(size);
+    WideCharToMultiByte(CP_UTF8, 0, wlogin.data(), wlogin.size(), login.data(), login.size(), nullptr, nullptr);
     return login;
 }
 
@@ -42,7 +52,7 @@ AnixartAchievement ask_achievement() {
     }
     size_t index;
     std::cout << "Выберите ачивку: ";
-    std::cin >> index;
+    std::wcin >> index;
     if (index >= countof(achievements)) {
         Logger::log_error("Неправильный индекс");
         exit(-1);
@@ -64,6 +74,10 @@ int program_main() {
         Logger::log_error("Ачивка уже получена");
         code = -1;
         break;
+    case AchievementCode::ProfileNotFound:
+        Logger::log_error("Профиль не найден");
+        code = -1;
+        break;
     default:
         Logger::log_error("Неизвестная ошибка");
         code = -1;
@@ -74,8 +88,11 @@ int program_main() {
 }
 
 int main() {
-    setlocale(LC_ALL, "ru");
     std::atexit(press_any_key);
+    (void)_setmode(_fileno(stdin), _O_WTEXT);
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     try {
         return program_main();
     }

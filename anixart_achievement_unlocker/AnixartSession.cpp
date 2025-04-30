@@ -18,7 +18,6 @@ AchievementCode AnixartSession::get_achievement(std::string_view name) const {
 	InlineJson::append(data, "profile_login", _login);
 	InlineJson::close_object(data);
 
-
 	JsonObject response = parse_json(post_request(url, data, "application/json"));
 	return ParseJson::get<AchievementCode>(response, "code");
 }
