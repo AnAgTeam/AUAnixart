@@ -80,13 +80,13 @@ int main() {
         return program_main();
     }
     catch (const network::UrlSessionError& e) {
-        Logger::log_info(e.what());
+        Logger::log_error(e.what());
     }
     catch (const std::exception& e) {
-        Logger::log_info(e.what());
+        Logger::log_error(e.what());
     }
     catch (...) {
-        Logger::log_info("Unknown exception");
+        Logger::log_error("Unknown exception");
     }
     return -1;
 }
