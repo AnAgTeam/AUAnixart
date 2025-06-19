@@ -12,7 +12,7 @@ AnixartSession::AnixartSession(std::string_view login) : _login(login) {
 }
 
 AchievementCode AnixartSession::get_achievement(std::string_view name) const {
-	std::string url = StringTools::sformat("https://api.anixart.tv/achievement/get/%s", name);
+	std::string url = StringTools::sformat("https://api.anixart.app/achievement/get/%s", name);
 	std::string data;
 	InlineJson::open_object(data);
 	InlineJson::append(data, "profile_login", _login);

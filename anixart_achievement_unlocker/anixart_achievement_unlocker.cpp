@@ -25,7 +25,8 @@ AnixartAchievement achievements[] = {
     AnixartAchievement("Аниксарт на Windows", "7G3X9-W8Y4Z-Q2R6T"),
     AnixartAchievement("Аниксарт Online", "9F2T6-R5Y8U-I7O1P"),
     AnixartAchievement("Аниксарт поможет", "G1H4J-K9L2M-B5N8P"),
-    AnixartAchievement("Аниксарт", "B9N3P-H7K1L-S6D8F")
+    AnixartAchievement("Аниксарт", "B9N3P-H7K1L-S6D8F"),
+    AnixartAchievement("С Днём рождения, Аниксарт! 10 лет", "BD10Y-PARTY-2025A")
 };
 
 void press_any_key() {
